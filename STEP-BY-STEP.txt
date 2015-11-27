@@ -1,0 +1,433 @@
+STEP BY STEP
+============
+00- Préparation (avant le début)
+
+01.1- Copie du dossier TMP\02 Modèle dans PrezTechnique (3 min)
+- renommer le dossier en Dev
+
+Ecran JL :
+Ouvrir Brackets :
+C:\Users\m312742\PrezTechnique\ionic-tdd
+    -> STEP-BY-STEP.txt
+
+Ecrans spécateurs :
+Ouvrir 3 commandes ConEmu
+C:\Users\m312742\PrezTechnique\Dev
+
+Ouvrir Brackets : ouvrir un dossier :  
+C:\Users\m312742\PrezTechnique\Dev
+
+Ouvrir la présentation dans Chrome
+    file:///C:/Users/m312742/PrezTechnique/ionic-tdd/index.html#/
+
+01.4- Premier build
+
+Onglet 1 :
+ionic serve
+
+Onglet 2 :
+ionic build android
+
+==============================
+
+02- Renommer l'application en Selfie
+
+- Modifier js\app.js
+
+angular.module('Selfie', ['ionic'])
+    
+- Modifier index.html
+
+  <body ng-app="Selfie">
+
+
+        <h1 class="title">Ionic Selfie</h1>
+
+      <ion-content>
+          <p ng-show="imageURI === undefined">Rien à voir...</p>
+          <img ng-show="imageURI !== undefined" ng-src="{{imageURI}}">
+          <ion-button class="button button-calm" ng-click="takePicture()">Mon selfie</ion-button>
+      </ion-content>
+
+
+03- Configuration Karma
+
+Onglet 3 :
+karma init karma.conf.js
+
+Editer le fichier, mettre les fichiers suivants:
+
+    basePath: 'www',
+    
+    files: [
+        'lib/ionic/js/ionic.bundle.js',
+        '../node_modules/angular-mocks/angular-mocks.js',
+        
+        'js/app.js',
+        'js/**/*.modules.js',
+        'js/**/*.controller.js',
+        'js/**/*.service.js',
+        
+        '../test/unit/**/*Spec.js',
+    ],
+
+
+- lancer Karma
+
+karma start karma.conf.js
+
+
+
+
+
+04- Ecriture du test de création du service CameraController
+
+- création du répertoire test\unit
+- création du fichier CameraControllerSpec.js
+
+describe('Unit: module', function() {
+    // Load the module to test, add your module name in here!
+    beforeEach(module('module'));
+
+    var ctrl, scope;
+    
+}):
+
+
+- écrire la création du controller et le test
+    beforeEach(module('Selfie'));
+
+    // inject the $controller and $rootScope services
+    // in the beforeEach block
+    beforeEach(inject(function($controller, $rootScope) {
+
+        // create a new scope that's a child of the $rootScope
+        scope = $rootScope.$new();
+
+        ctrl = $controller('CameraController as CamCtrl', {
+            $scope: scope
+        });
+    }));
+    
+    
+- écrire le premier test
+
+    it('should be able to take a picture', function() {
+        expect(scope.CamCtrl.takePicture).toBeDefined();
+    });
+    
+    
+>> ERROR : fail to instantiate module
+
+- renommer module Selfie
+    beforeEach(module('Selfie'));
+    
+
+>> ERROR : CameraController is not a function, got undefined
+
+
+
+04- Création du module camera à la JohnPapa
+
+- création répertoire "camera"
+- création du fichier camera.modules.js
+
+(function() {
+    'use strict';
+
+	angular.module('Selfie.Camera.modules', []);
+})();
+
+
+- Ajouter le module Selfie.camera à l'application : app.js
+
+angular.module('Selfie', ['ionic','Selfie.Camera.modules'])
+
+
+>> ERROR   Error: [ng:areq] Argument 'CameraController' is not a function, got undefined
+
+
+- création du fichier camera\camera.controller.js
+
+(function() {
+    'use strict';
+
+    angular.module('Selfie.Camera.modules').
+    	controller('CameraController', CameraCtrl);
+        
+    var injectParams = [];
+})();
+
+>> ERROR  ReferenceError: Can't find variable: CameraCtrl
+
+
+
+>> ERROR  ReferenceError: Can't find variable: CameraCtrl
+
+
+- Compléter le controller
+
+    var injectParams = [];
+
+    CameraCtrl.$inject = injectParams;
+    function CameraCtrl() {
+        /* jshint validthis: true */			
+        var vm = this;
+
+        vm.takePicture = function() {
+        }
+    }
+
+>> Test OK
+    
+    
+- injecter le service CameraSrv
+
+    var injectParams = ["CameraSrv"];
+    
+    CameraCtrl.$inject = injectParams;
+    function CameraCtrl(CameraSrv) {
+
+>> ERROR : [$injector:unpr] Unknown provider: CameraSrvProvider <- CameraSrv <- CameraController
+
+
+05- Aller voir la documentation Ionic / Learn Ionic / Formulas / Camera
+
+
+06- Créer le service camera.service.js
+
+(function() {
+    'use strict';
+
+    angular.module('Selfie.Camera.modules').
+        factory('CameraSrv', Camera);
+    
+    var injectParams = ["$q"];
+    
+    /** Functions code */    
+    Camera.$inject = injectParams;
+    function Camera ($q) {
+        return {
+            getPicture: function(options) {
+              var q = $q.defer();
+
+              navigator.camera.getPicture(function(result) {
+                // Do any magic you need
+                q.resolve(result);
+              }, function(err) {
+                q.reject(err);
+              }, options);
+
+              return q.promise;
+            }
+        }
+    }
+})();
+
+
+>> Tests OK
+
+
+
+07- Créer un fichier de test du service mocké
+
+describe("Test controller avec service Mocké", function(){
+    var rootScope, scope, controller, CameraSrvMock;
+    var DEFERRED_OK = 0;
+    var DEFERRED_KO = 1;
+    var deferredOut = DEFERRED_OK;
+
+    beforeEach(module('Selfie'));
+
+    beforeEach(inject(function($rootScope, $controller, $q) {
+        rootScope = $rootScope;
+        scope = $rootScope.$new();
+        controller = $controller;
+
+        CameraSrvMock = {
+        getPicture: function(){
+                // mock promise
+                var deferred = $q.defer();
+                
+                switch (deferredOut) {
+                case DEFERRED_KO:
+                    deferred.reject('Image KO');
+                    break;
+                case DEFERRED_OK:
+                    deferred.resolve('img/ionic.png');
+                    break;
+                default:
+                    deferred.reject('????????');
+                    break;
+                }
+                return deferred.promise;
+            }            
+        };
+    }));  
+
+    it('Test promise est OK', function() {
+        deferredOut = DEFERRED_OK;
+        controller("CameraController as CamCtrl", {
+                $scope: scope,
+                CameraSrv: CameraSrvMock
+            });
+            scope.CamCtrl.takePicture();
+            scope.$digest();
+            expect(scope.CamCtrl.imageURI).toBe('img/ionic.png')
+    });
+
+    it('Test promise est KO', function() {
+    deferredOut = DEFERRED_KO;
+        controller("CameraController as CamCtrl", {
+            $scope: scope,
+            CameraSrv: CameraSrvMock
+        });
+        scope.CamCtrl.takePicture();
+        scope.$digest();
+        expect(scope.CamCtrl.imageURI).toBe('Image KO')
+    });
+});
+
+
+
+
+08- mettre à jour l'application : index.html
+
+constater qu'il y a des erreurs 
+>> ERROR : Error: [$injector:nomod] Module 'Selfie.Camera.modules' is not available!
+
+- inclure les nouveaux fichiers
+
+    <script src="js/camera/camera.modules.js"></script>
+    <script src="js/camera/camera.controller.js"></script>
+    <script src="js/camera/camera.service.js"></script>
+    
+- utiliser le controller
+
+      <ion-content ng-controller="CameraController as CamCtrl">
+          <p ng-show="CamCtrl.imageURI === undefined">Rien à voir...</p>
+          <img ng-show="CamCtrl.imageURI !== undefined" ng-src="{{CamCtrl.imageURI}}">
+          <ion-button class="button button-calm" ng-click="CamCtrl.takePicture()">Mon selfie</ion-button>
+      </ion-content>
+
+
+
+    var injectParams = ["CameraSrv"];
+    
+    /** Functions code */    
+	CameraCtrl.$inject = injectParams;
+	function CameraCtrl(CameraSrv) {
+		/* jshint validthis: true */			
+		var vm = this;
+        
+        vm.takePicture = function() {
+        }
+    }
+
+>> ERROR Error: [$injector:unpr] Unknown provider: CameraSrvProvider <- CameraSrv <- CameraController
+
+
+
+
+
+06- Appeler le service dans le controller :
+
+- copier/coller depuis la doc
+
+  $scope.getPhoto = function() {
+    Camera.getPicture().then(function(imageURI) {
+      console.log(imageURI);
+    }, function(err) {
+      console.err(err);
+    });
+    
+    
+- rajouter des paramètres et adapter :
+- $scope -> CameraSrv
+- ajouter les options
+- vm.imageURI = imageURI;
+
+           var options = { 
+                quality : 75, 
+                allowEdit : true,
+                targetWidth: 300,
+                targetHeight: 300,
+                saveToPhotoAlbum: false
+            };
+
+            CameraSrv.getPicture(options).then(function(imageURI) {
+              console.log(imageURI);
+              vm.imageURI = imageURI;
+            }, function(err) {
+              console.err(err);
+            });
+
+>> ERROR :   Error: [$injector:unpr] Unknown provider: CameraSrvProvider <- CameraSrv <- CameraController  
+
+
+07- créer le service camera.service.js
+
+(function() {
+    'use strict';
+
+    angular.module('Selfie.Camera.modules').
+        factory('CameraSrv', Camera);
+    
+    var injectParams = ["$q"];
+    
+    /** Functions code */    
+    Camera.$inject = injectParams;
+    function Camera ($q) {
+        return {
+            getPicture: function(options) {
+              var q = $q.defer();
+
+              try {
+                  navigator.camera.getPicture(function(result) {
+                    // Do any magic you need
+                    q.resolve(result);
+                  }, function(err) {
+                    q.reject(err);
+                  }, options);
+              }
+              catch(err) {
+                  q.reject("img/ionic.png");
+              }
+
+              return q.promise;
+            }
+        }
+    }
+})();
+
+
+08- MOCKER le service : créer une spec de mock
+
+
+
+
+>> ERROR TypeError: Cannot read property 'takePicture' of undefined
+    
+    
+
+
+08- Coder l'index.html
+
+      <ion-content ng-controller="CameraController as CamCtrl">
+          <p ng-show="CamCtrl.imageURI === undefined">Pas d'image</p>
+          <img ng-show="CamCtrl.imageURI !== undefined" ng-src="{{CamCtrl.imageURI}}">
+          
+          <button class="button" ng-click="CamCtrl.takePicture()">Take picture</button>     
+      </ion-content>
+
+>> Ca marche en local
+
+09- Lancer sur android
+
+ionic run android
+
+
+10- Inspect
+
+chrome://inspect
+
