@@ -404,11 +404,115 @@ constater qu'il y a des erreurs
 08- MOCKER le service : créer une spec de mock
 
 
+VVVVVVVVVVVVVVVVVVVVVVVVVVVV
 
 
->> ERROR TypeError: Cannot read property 'takePicture' of undefined
+describe("Test controller avec service Mocké", function(){
+    var rootScope, scope, controller, CameraSrvMock;
+    var DEFERRED_OK = 0;
+    var DEFERRED_KO = 1;
+    var deferredOut = DEFERRED_OK;
+
+    beforeEach(module('Selfie'));
+
+    beforeEach(inject(function($rootScope, $controller, $q) {
+        rootScope = $rootScope;
+        scope = $rootScope.$new();
+        controller = $controller;
+
+        CameraSrvMock = {
+        getPicture: function(){
+                // mock promise
+                var deferred = $q.defer();
+                
+                switch (deferredOut) {
+                case DEFERRED_KO:
+                    deferred.reject('KO IMAGE KO');
+                    break;
+                case DEFERRED_OK:
+                    deferred.resolve('Image OK');
+                    break;
+                default:
+                    deferred.reject('????????');
+                    break;
+                }
+                return deferred.promise;
+            }            
+        };
+    }));  
+
+    it('Test promise est OK', function() {
+        deferredOut = DEFERRED_OK;
+        controller("CameraController as CamCtrl", {
+                $scope: scope,
+                CameraSrv: CameraSrvMock
+            });
+            scope.CamCtrl.takePicture();
+            scope.$digest();
+            expect(scope.CamCtrl.imageURI).toBe('Image OK')
+    });
+
+    it('Test promise est KO', function() {
+    deferredOut = DEFERRED_KO;
+        controller("CameraController as CamCtrl", {
+            $scope: scope,
+            CameraSrv: CameraSrvMock
+        });
+        scope.CamCtrl.takePicture();
+        scope.$digest();
+        expect(scope.CamCtrl.imageURI).toBe('KO IMAGE KO')
+    });
+});
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+09- Ecrire le service camera.service.js
+
+VVVVVVVVVVVVVVVVVVVVVVVVVVVV
+
+
+
+(function() {
+    'use strict';
+
+    angular.module('Selfie.Camera.modules').
+        factory('CameraSrv', Camera);
     
+    var injectParams = ["$q"];
     
+    /** Functions code */    
+    Camera.$inject = injectParams;
+    function Camera ($q) {
+        return {
+            getPicture: function(options) {
+              var q = $q.defer();
+
+              try {
+                  navigator.camera.getPicture(function(result) {
+                    // Do any magic you need
+                    q.resolve(result);
+                  }, function(err) {
+                    q.reject(err);
+                  }, options);
+              }
+              catch(err) {
+                  // BEURK ! Il faut mocker navigator.camera
+                  q.reject("img/ionic.png");
+              }
+
+              return q.promise;
+            }
+        }
+    }
+})();
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+
 
 
 08- Coder l'index.html
@@ -421,6 +525,7 @@ constater qu'il y a des erreurs
       </ion-content>
 
 >> Ca marche en local
+
 
 09- Lancer sur android
 
