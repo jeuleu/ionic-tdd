@@ -64,7 +64,7 @@
 	<hr />
 	<ul>
         <li>Les <em>frameworks mobiles</em> multi-plateformes</li>
-        <li>Petite introduction au <em>TDD</em></li>
+        <li>Le <em>TDD</em> en 1 slide</li>
         <li>L'<em>exercice</em> du jour</li>
         <li><em>Préparation</em> du terrain</li>
         <br />
@@ -91,7 +91,8 @@
             <br />
             <h3><em>Comment ?</em></h3>
             <ul>
-                <li>Un développement pour les unir tous</li>
+                <li>Un développement pour les unir tous
+                    <br/ ><span class="fragment">&hellip; ou presque.</span></li>
             </ul>
         </div>
     </section>
@@ -103,11 +104,14 @@
             <h3><img src="res/logo-xamarin.png" class="nobox" style="vertical-align: middle">
                 <em>Xamarin</em></h3>
             <ul>
-                <li>Environnement complet de développement en <em>C#</em>
-                    <br /><small>Visual Studio ou Xamarin Studio</small></li>
-                <li>Appel des API natives au travers de librairies spécifiques</li>
-                <li>Code commun unique.
+                <li>Ecosystème complet de développement en <em>C#</em>
+                    <br /><small>Xamarin Platform, Xamarin Test Cloud, Xamarin Insight&hellip;</small></li>
+                <li>Ressources spécifiques via API natives redéveloppées en C#</li>
+                <li>Maximiser le code commun
                     <br /><small><em>Xamarin.Forms</em> :  description d'interfaces</small></li>
+                <li>Code spécifique à chaque plateforme</li>
+                <br />
+                <li>1 000 000+ utilisateurs dans 120 pays</li>
             </ul>
         </div>
      
@@ -130,7 +134,8 @@
             <li>Version Open Source d'Abode <em>PhoneGap</em>
                 <br /><small>Développement en <em>HTML</em>, <em>CSS</em>, <em>JavaScript</em></small></li>
             <li>Accès aux ressources spécifiques par des <em>Plugins</em></li>
-            <li>Application web native, compilation d'<em>applications hybrides</em></li>
+            <li>C'est une application web</li>
+            <li>Compilation d'<em>applications hybrides</em> pour chaque plateforme cible</li>
             <li>Intégration AngularJS : <em>ngCordova</em></li>
         </ul>
        
@@ -155,18 +160,19 @@
 </section>
 
 <section>
-    <h2>Petite introduction au <em>TDD</em></h2>
+    <h2>Le <em>TDD</em> en 1 slide</em></h2>
     <hr />
     <h3><em>TDD</em> = Test Driven Development</TDD></h3>
     <img src="res/red-green-refactor.png" class="fragment">    
-    <p>Un test = une <em>spécification fonctionnelle</em></p>
+    <p>Un test = Une <em>spécification fonctionnelle</em></p>
 </section>
 
 <section>
     <h2>L'<em>exercice</em> du jour</h2>
     <hr />
         <div>
-            <p>Réaliser avec <em>Ionic</em> l'application indispensable pour se prendre en <em>Selfie</em> !</p>
+            <p>Réaliser avec <em>Ionic</em> l'application indispensable
+                <br />pour se prendre en <em>Selfie</em> !</p>
             <p><small>Copie d'écran ici..</small></p>
         </div>
 
@@ -183,8 +189,8 @@
             <br />
             <h3>Concrètement</h3>
             <ul>
-                <li>Tests : <em>Jasmine</em>, lancés avec <em>Karma</em></li>
-                <li>Recommandations JohnPapa : <a href="http://www.johnpapa.net/angular-style-guide/">Angular Style Guide </a></li>
+                <li>Tests = Spécifications : <em>Jasmine</em> + <em>Karma</em></li>
+                <li>Composants à la <em>JohnPapa</em> : <a href="http://www.johnpapa.net/angular-style-guide/">Angular Style Guide </a></li>
             </ul>
 </section>
 
@@ -235,9 +241,7 @@ cd selfie
             <br />
             <h4>Plateformes <em>cibles</em> et <em>plugins</em></h4>
             <pre><code data-trim>
-ionic platform add ios
 ionic platform add android
-
 ionic plugin add cordova-plugin-camera
             </code></pre>
         </div>
@@ -252,12 +256,13 @@ karma init karma.conf.js
     </section>
     
     <section>
+        <h2><em>Préparation</em> du terrain</h2>
+        <hr />
+
         <div>
-            <h2><em>Préparation</em> du terrain</h2>
-            <hr />
-            <h4>Lancement <em>en local</em> de l'application</h4
+            <h4>Lancement <em>en local</em> de l'application</h4>
             <pre><code data-trim>
-    ionic serve
+ionic serve
             </code></pre>
         </div>
         
@@ -266,6 +271,15 @@ karma init karma.conf.js
             <h4>Lancement des <em>tests</em></h4>
             <pre><code data-trim>
 karma start karma.conf.js
+            </code></pre>
+        </div>        
+        
+        <div class="fragment">
+            <br />
+            <h4>Lancement de l'application <em>sur le device</em></h4>
+            <pre><code data-trim>
+ionic build android
+ionic run android
             </code></pre>
         </div>        
     </section>
