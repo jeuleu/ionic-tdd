@@ -1,0 +1,10 @@
+- injecter le service CameraSrv dans camera.controller.js
+
+    var injectParams = ["CameraSrv"];
+    
+    CameraCtrl.$inject = injectParams;
+    function CameraCtrl(CameraSrv) {
+
+>> ERROR : [$injector:unpr] Unknown provider: CameraSrvProvider <- CameraSrv <- CameraController
+
+

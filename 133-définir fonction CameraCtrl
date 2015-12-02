@@ -1,0 +1,35 @@
+- définir la fonction CameraCtrl :
+
+>> Test OK
+
+    CameraCtrl.$inject = injectParams;
+    function CameraCtrl() {
+        /* jshint validthis: true */			
+        var vm = this;
+
+        vm.takePicture = function() {
+            vm.imageURI = "Oh Toulouse !";
+        }
+    }
+    
+    
+    CameraCtrl.$inject = injectParams;
+    function CameraCtrl() {
+        /* jshint validthis: true */			
+        var vm = this;
+
+        vm.takePicture = function() {
+            vm.imageURI = "Bonjour Valbonne !"
+        }
+    }
+
+
+    CameraCtrl.$inject = injectParams;
+    function CameraCtrl() {
+        /* jshint validthis: true */			
+        var vm = this;
+
+        vm.takePicture = function() {
+            vm.imageURI = "Bonjour Paray !"
+        }
+    }

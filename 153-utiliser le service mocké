@@ -1,0 +1,17 @@
+- Utiliser le service mocké dans le test
+
+>> ERROR Expected 'Oh Toulouse !' to be 'Image OK'
+
+
+//        it('promise should return image if OK', function() {
+        
+            ctrl("CameraController as CamCtrl", {
+                $scope: scope,
+                CameraSrv: CameraSrvMock
+            });
+            
+
+//            scope.CamCtrl.takePicture();
+//            scope.$digest();
+//            expect(scope.CamCtrl.imageURI).toBe('Image OK')
+//        });

@@ -1,0 +1,10 @@
+- création du fichier camera\camera.controller.js
+
+(function() {
+    'use strict';
+    
+    angular.module('Selfie.Camera.module').
+    	controller('CameraController', CameraCtrl);
+        
+    var injectParams = [];
+})();

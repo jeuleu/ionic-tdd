@@ -1,0 +1,26 @@
+- Encapsuler le premier jeu de tests, indenter
+
+
+    describe('Unit 1: CameraController should exist', function() {
+
+
+
+        // inject the $controller and $rootScope services
+        // in the beforeEach block
+        beforeEach(inject(function($controller, $rootScope) {
+
+            // create a new scope that's a child of the $rootScope
+            scope = $rootScope.$new();
+
+            ctrl = $controller('CameraController as CamCtrl', {
+                $scope: scope
+            });
+        }));
+
+        it('should be able to take a picture', function() {
+            scope.CamCtrl.takePicture();
+            scope.$digest();  
+            expect(scope.CamCtrl.imageURI).toBeDefined();
+        })
+        
+    });

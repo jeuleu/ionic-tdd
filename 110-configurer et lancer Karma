@@ -1,0 +1,28 @@
+1.1- Configuration Karma
+
+- Configurer Karma
+
+
+karma init karma.conf.js
+
+
+- Editer le fichier karma.conf.js :
+
+    basePath: 'www',
+    
+    files: [
+        'lib/ionic/js/ionic.bundle.js',
+        '../node_modules/angular-mocks/angular-mocks.js',
+        
+        'js/app.js',
+        'js/**/*.module.js',
+        'js/**/*.controller.js',
+        'js/**/*.service.js',
+        
+        '../test/unit/**/*Spec.js',
+    ],
+
+
+- lancer Karma
+
+karma start karma.conf.js

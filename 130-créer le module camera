@@ -1,0 +1,12 @@
+130-créer le module camera à la JohnPapa
+
+- création répertoire "camera"
+- création du fichier camera.module.js
+
+(function() {
+    'use strict';
+
+	angular.module('Selfie.Camera.module', []);
+})();
+
+

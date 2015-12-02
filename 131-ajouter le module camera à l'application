@@ -1,0 +1,8 @@
+- Ajouter le module Selfie.camera à l'application : app.js
+XXXXXXXXXXXXXXXXXXXX
+XXXX IMPORTANT XXXXX
+
+angular.module('Selfie', ['ionic','Selfie.Camera.module'])
+
+XXXX IMPORTANT XXXXX
+XXXXXXXXXXXXXXXXXXXX

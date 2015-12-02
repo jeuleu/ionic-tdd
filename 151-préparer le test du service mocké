@@ -1,0 +1,16 @@
+ - Service Camera mocké
+ 
+    describe('Unit2: Mock Camera service', function() {
+
+        it('promise should return image if OK', function() {
+            ctrl("CameraController as CamCtrl", {
+                $scope: scope,
+                CameraSrv: CameraSrvMock
+            });
+            
+            scope.CamCtrl.takePicture();
+            scope.$digest();
+            expect(scope.CamCtrl.imageURI).toBe('Image OK')
+        });
+    });
+

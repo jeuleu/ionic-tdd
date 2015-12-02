@@ -1,0 +1,12 @@
+- le premier test utilisant le controlleur
+
+    it('should be able to take a picture', function() {
+        scope.CamCtrl.takePicture();
+        scope.$digest();  
+        expect(scope.CamCtrl.imageURI).toBeDefined();
+    })
+    
+    
+    
+>> ERROR : CameraController is not a function, got undefined
+

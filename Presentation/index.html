@@ -53,9 +53,9 @@
     
     <div><small>
         <hr />
-        <p><em>Toulouse</em> : 3 décembre 2015</p>
-        <p><em>Valbonne</em> : 9 et 10 décembre 2015</p>
-        <p><em>Paray</em> : 15 décembre 2015</p>
+        <p><em>Toulouse</em> - 3 décembre 2015</p>
+        <p><em>Valbonne</em> - 9 et 10 décembre 2015</p>
+        <p><em>Paray</em> - 15 décembre 2015</p>
     </small></div>
 </section>
 
@@ -63,10 +63,12 @@
 	<h2><em>Au programme</em></h2>
 	<hr />
 	<ul>
-        <li>Les <em>frameworks</em> mobiles multi-plateformes</li>
+        <li>Les <em>frameworks</em> multi-plateformes<br />de développement mobile</li>
         <li>Le <em>TDD</em> en 1 slide</li>
         <li>Que va-t-on <em>développer</em> aujourd'hui ?</li>
-        <li><em>Préparation</em> du terrain</li>
+<!--
+        <li>On <em>prépare</em> le terrain&hellip;</li>
+-->
         <br />
         <li>&hellip; et maintenant <em>on code !</em></li>
 	</ul>
@@ -74,18 +76,18 @@
                 
 <section>
     <section>
-        <h2>Les <em>frameworks</em> mobiles</h2>
-        <h3>multi-plateformes</h3>
+        <h2>Les <em>frameworks</em> multi-plateformes</h2>
+        <h3>de développement mobile</h3>
         <hr />
         
         <div>
             <br/>
-            <h3>Pour des cibles <em>variées</em></h3>
+            <h3>Cibler des <em>mobiles</em> variées&hellip;</h3>
 <img src="res/logosMobiles.png" class="nobox" style="margin: 0px;
-    vertical-align: middle; width: 200px">&hellip;
+    vertical-align: middle; width: 300px">&hellip;
 
             <br /><br /><br />
-            <h3>&hellip; faire <em>un seul</em> développement</h3>
+            <h3>&hellip; en faisant <em>un seul</em> développement</h3>
             <ul>
                 <li>Une seule <em>technologie</em></li>
                 <li>Limiter le <em>coût</em> des développements</li>
@@ -112,9 +114,9 @@
             <h3><img src="res/logo-xamarin.png" class="nobox" style="vertical-align: middle">
                 <em>Xamarin</em></h3>
             <ul>
-                <li>Ecosystème complet de développement en <em>C#</em>
+                <li>Ecosystème complet de développement basé sur <em>.Net</em>
                     <br /><small>Xamarin Platform, Xamarin Test Cloud, Xamarin.Forms, Xamarin Insight&hellip;</small></li>
-                <li>Ressources spécifiques via API natives en C#</li>
+                <li>Ressources spécifiques via API natives en <em>C#</em></li>
 <!--
                 <br />
                 <li>Code spécifique à chaque plateforme</li>
@@ -141,8 +143,8 @@
             Apache <em>Cordova</em></h3>
         <ul>
             <li>Version Open Source d'Abode <em>PhoneGap</em>
-                <br /><small>Développement en <em>HTML</em>, <em>CSS</em>, <em>JavaScript</em></small></li>
-            <li><em>Plugins</em> pour les ressources mobiles spécifiques</li>
+                <br /><small><em>HTML</em> - <em>CSS</em> - <em>JavaScript</em></small></li>
+            <li><em>Plugins</em> pour accéder aux ressources du mobile</li>
             <br />
             <li>Compilation d'<em>application hybride</em> par plateforme</li>
                 <br />
@@ -217,7 +219,7 @@
 
         <div class="fragment">
 -->
-            <br />
+            <br /><br />
             <h3>Concrètement</h3>
             <ul>
                 <li>Tests = Spécifications : <em>Jasmine</em> + <em>Karma</em></li>
@@ -227,14 +229,11 @@
 
 <section>
     <section>
-        <h2><em>Préparation</em> du terrain</h2>
+        <h2>On <em>prépare</em> le terrain&hellip;</h2>
+        <p><i>prérequis :</i> <em>Node.js</em></p>
         <hr />
-        <div>
-            <h4>Pré-requis : <em>Node.js</em></h4>
-
 
         <div class="fragment">
-            <br />
             <h4>Installation de <em>Ionic</em></h4>
             <pre><code data-trim>
 npm install -g cordova ionic
@@ -248,6 +247,13 @@ npm install -g cordova ionic
 npm install karma -–save-dev
 npm install karma-jasmine karma-chrome-launcher -–save-dev
 npm install karma-cli
+            </code></pre>      
+        </div>    
+
+        <div class="fragment">
+            <br />
+            <h4>Installation de l'environnement de <em>mock</em></h4>
+            <pre><code data-trim>
 npm install angular-mocks
             </code></pre>      
         </div>    
@@ -255,12 +261,14 @@ npm install angular-mocks
     </section>
     
     <section>
-        <h2><em>Préparation</em> du terrain</h2>
+        <h2>On <em>prépare</em> le terrain&hellip;</h2>
         <hr />
 
         <div>
             <h4><em>Création</em> du projet</h4>
+<!--
             <p><small>Templates : blank, tabs, maps, complex-list&hellip;</small></p>
+-->
             <pre><code data-trim>
 ionic start selfie blank
 cd selfie
@@ -269,9 +277,7 @@ cd selfie
         </div>
         
         <div class="fragment">
-<!--
             <br />
--->
             <h4>Plateformes <em>cibles</em> et <em>plugins</em></h4>
             <pre><code data-trim>
 ionic platform add android
@@ -280,9 +286,7 @@ ionic plugin add cordova-plugin-camera
         </div>
 
         <div class="fragment">
-<!--
             <br />
--->
             <h4>Lancement <em>en local</em></h4>
             <pre><code data-trim>
 ionic serve
@@ -291,9 +295,7 @@ ionic serve
         
 
         <div class="fragment">
-<!--
             <br />
--->
             <h4><em>Configuration</em> de Karma</h4>
             <pre><code data-trim>
 karma init karma.conf.js
@@ -306,7 +308,7 @@ karma init karma.conf.js
     
 <!--
     <section>
-        <h2><em>Préparation</em> du terrain</h2>
+        <h2>On <em>prépare</em> le terrain&hellip;</h2>
         <hr />
 
         <div>
@@ -343,6 +345,8 @@ ionic run android
 
 <section data-transition="zoom">
 	<h1>Questions ?</h1>
+
+    <img src="res/Help-icon.png" class="nobox">
 </section>
 
                 
