@@ -51,7 +51,7 @@
     <h1>Cordova</h1>
     <h2>en <em>TDD</em></h2>
     
-    <div class="fragment"><small>
+    <div><small>
         <hr />
         <p><em>Toulouse</em> : 3 décembre 2015</p>
         <p><em>Valbonne</em> : 9 et 10 décembre 2015</p>
@@ -63,9 +63,9 @@
 	<h2><em>Au programme</em></h2>
 	<hr />
 	<ul>
-        <li>Les <em>frameworks mobiles</em> multi-plateformes</li>
+        <li>Les <em>frameworks</em> mobiles multi-plateformes</li>
         <li>Le <em>TDD</em> en 1 slide</li>
-        <li>L'<em>exercice</em> du jour</li>
+        <li>Que va-t-on <em>développer</em> aujourd'hui ?</li>
         <li><em>Préparation</em> du terrain</li>
         <br />
         <li>&hellip; et maintenant <em>on code !</em></li>
@@ -74,19 +74,26 @@
                 
 <section>
     <section>
-        <h2>Les <em>frameworks mobiles</em><br />multi-plateformes</h2>
+        <h2>Les <em>frameworks</em> mobiles</h2>
+        <h3>multi-plateformes</h3>
         <hr />
         
         <div>
-            <h3><em>Pourquoi faire ?</em></h3>
+            <br/>
+            <h3>Pour des cibles <em>variées</em></h3>
+<img src="res/logosMobiles.png" class="nobox" style="margin: 0px;
+    vertical-align: middle; width: 200px">&hellip;
+
+            <br /><br /><br />
+            <h3>&hellip; faire <em>un seul</em> développement</h3>
             <ul>
-                <li>Cibler plusieurs plateformes &nbsp;&nbsp;&nbsp;&nbsp;<img src="res/logosMobiles.png" class="nobox" style="margin: 0px;
-    vertical-align: middle; width: 300px"></li>
-                <li><em>Look &amp; Feel</em> natif</li>
-                <li>Limiter le coût des développements</li>
+                <li>Une seule <em>technologie</em></li>
+                <li>Limiter le <em>coût</em> des développements</li>
+                <li>Look &amp; Feel <em>natif</em></li>
             </ul>
         </div>
 
+<!--
         <div class="fragment">
             <br />
             <h3><em>Comment ?</em></h3>
@@ -95,6 +102,7 @@
                     <br/ ><span class="fragment">&hellip; ou presque.</span></li>
             </ul>
         </div>
+-->
     </section>
 
     <section>
@@ -105,24 +113,25 @@
                 <em>Xamarin</em></h3>
             <ul>
                 <li>Ecosystème complet de développement en <em>C#</em>
-                    <br /><small>Xamarin Platform, Xamarin Test Cloud, Xamarin Insight&hellip;</small></li>
+                    <br /><small>Xamarin Platform, Xamarin Test Cloud, Xamarin.Forms, Xamarin Insight&hellip;</small></li>
                 <li>Ressources spécifiques via API natives en C#</li>
-                <li>Maximiser le code commun
-                    <br /><small><em>Xamarin.Forms</em> :  description d'interfaces</small></li>
+<!--
+                <br />
                 <li>Code spécifique à chaque plateforme</li>
+-->
                 <br />
                 <li>1 000 000+ utilisateurs dans 120 pays</li>
+
+                <br />
+                
+                <p>
+                    <em>Plus</em> : performances 
+                    &nbsp;&nbsp;&nbsp;
+                    <em>Moins</em> : coût des licences
+                </p>
             </ul>
         </div>
-     
-<!--
-        <div class="fragment">
-            <hr />
-            <p><em>Plus :</em> performance : code exécutable réellement natif</p>
-            <p><em>Moins :</em> langage spécifique, devs spécifiques, coût des licences</p>
-        </div>
--->
-        
+ 
     </section>
 
     <section>
@@ -133,10 +142,18 @@
         <ul>
             <li>Version Open Source d'Abode <em>PhoneGap</em>
                 <br /><small>Développement en <em>HTML</em>, <em>CSS</em>, <em>JavaScript</em></small></li>
-            <li>Accès aux ressources spécifiques par des <em>plugins</em></li>
-            <li>C'est une application web</li>
-            <li>Compilation d'<em>applications hybrides</em> pour chaque plateforme cible</li>
-            <li>Intégration AngularJS : <em>ngCordova</em></li>
+            <li><em>Plugins</em> pour les ressources mobiles spécifiques</li>
+            <br />
+            <li>Compilation d'<em>application hybride</em> par plateforme</li>
+                <br />
+                
+                <p>
+                    <em>Plus</em> : Open Source
+<!--
+                    &nbsp;&nbsp;&nbsp;
+                    <em>Moins</em> : 
+-->
+                </ p>
         </ul>
        
     </section>
@@ -146,7 +163,7 @@
         <hr />
         <h3><img src="res/logo-ionic.png" class="nobox" style="vertical-align: middle">
             Ionic</h3>
-        <ul>
+        <ul> 
             <li>Cordova + AngularJS</li>
             <li>Composants d'interface complexes : <em><code>&lt;directive&gt;</code></em></li>
             <li>Communauté très active !</li>
@@ -155,6 +172,17 @@
         <img src="res/ionic-compex-list.png" height="300px">
 
     </section>
+    
+<!--
+    <section>
+        <h2>Les autres <em>frameworks</em></h2>
+        <hr />
+        <ul>
+            <li>Qt</li>
+            <li>Unity</li>
+        </ul>
+    </section>
+-->
 
                 
 </section>
@@ -164,28 +192,31 @@
     <hr />
     <h3><em>TDD</em> = Test Driven Development</TDD></h3>
     <img src="res/red-green-refactor.png" class="fragment">    
-    <p>Un test = Une <em>spécification fonctionnelle</em></p>
+            <h3>Un test = Une <em>spécification fonctionnelle</em></h3>
 </section>
 
 <section>
-    <h2>L'<em>exercice</em> du jour</h2>
+    <h2>Que va-t-on <em>développer</em> aujourd'hui ?</h2>
     <hr />
+            <img src="res/selfieScreenshot.png"  style="position:fixed; right:0px; top:100px; height:300px; border:none;">
         <div>
-            <p>Réaliser avec <em>Ionic</em> l'application indispensable
-                <br />pour se prendre en <em>Selfie</em> !</p>
-            <p><small>Copie d'écran ici..</small></p>
+            <h3>Réaliser avec <em>Ionic</em> et en <em>TDD</em></h3>
+            <p>l'application indispensable</p>
+            <p>pour se prendre en <em>Selfie</em> !</p>            
         </div>
 
         <div class="fragment">
             <br />
             <h3>Pourquoi ça a un intérêt ?</h3>
             <ul>
-                <li>En phase avec l'écosystème <em>DevNet</em></li>
-                <li><em>Mocker</em> le spécifique mobile et développer en local</li>
+                <li>Utiliser la puissance d'<em>AngularJS</em></li>
+                <li><em>Mocker</em> les ressouces du mobile pour développer en local</li>
             </ul>
+<!--
         </div>
 
         <div class="fragment">
+-->
             <br />
             <h3>Concrètement</h3>
             <ul>
@@ -199,25 +230,23 @@
         <h2><em>Préparation</em> du terrain</h2>
         <hr />
         <div>
-            <h4>Installation de <em>Node.js</em></h4>
-            <ul>
-                <li>Voir Confluence <a href="https://confluence.eden.klm.com/pages/viewpage.action?pageId=98670832">Forge / Node JS</a></li>
-            </ul>
+            <h4>Pré-requis : <em>Node.js</em></h4>
+
 
         <div class="fragment">
             <br />
-            <h4>Installation de Ionic</h4>
+            <h4>Installation de <em>Ionic</em></h4>
             <pre><code data-trim>
 npm install -g cordova ionic
-            </code></pre>
+            </code></pre> 
         </div>
 
         <div class="fragment">
             <br />
             <h4>Installation de l'environnement de <em>test</em></h4>
             <pre><code data-trim>
-npm install karma –save-dev
-npm install karma-jasmine karma-chrome-launcher –save-dev
+npm install karma -–save-dev
+npm install karma-jasmine karma-chrome-launcher -–save-dev
 npm install karma-cli
 npm install angular-mocks
             </code></pre>      
@@ -231,14 +260,18 @@ npm install angular-mocks
 
         <div>
             <h4><em>Création</em> du projet</h4>
+            <p><small>Templates : blank, tabs, maps, complex-list&hellip;</small></p>
             <pre><code data-trim>
-ionic start selfie blank    (templates disponibles : blank | tabs | sidemenu)
+ionic start selfie blank
 cd selfie
             </code></pre>
+
         </div>
         
         <div class="fragment">
+<!--
             <br />
+-->
             <h4>Plateformes <em>cibles</em> et <em>plugins</em></h4>
             <pre><code data-trim>
 ionic platform add android
@@ -247,12 +280,27 @@ ionic plugin add cordova-plugin-camera
         </div>
 
         <div class="fragment">
+<!--
             <br />
+-->
+            <h4>Lancement <em>en local</em></h4>
+            <pre><code data-trim>
+ionic serve
+            </code></pre>
+        </div>
+        
+
+        <div class="fragment">
+<!--
+            <br />
+-->
             <h4><em>Configuration</em> de Karma</h4>
             <pre><code data-trim>
 karma init karma.conf.js
             </code></pre>
+<!--
             <small>Testing framework: <em>Jasmine</em> - Browser: <em>PhantomJS</em> - Watch files: <em>yes</em></small>
+-->
         </div>        
     </section>
     
