@@ -1,5 +1,7 @@
 - Le vrai code du service
 
+>> ERROR : undefined is not an object
+TEST IMPOSSIBLE EN LOCAL sans try-catch
 
 //    function Camera ($q) {
 //        return {

@@ -1,5 +1,8 @@
 - création du fichier camera\camera.controller.js
 
+>> ERROR Cannot find variable CameraCtrl
+
+
 (function() {
     'use strict';
     

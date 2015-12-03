@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-    angular.module('Selfie.Camera.modules').
+    angular.module('Selfie.Camera.module').
         factory('CameraSrv', Camera);
     
     var injectParams = ["$q"];
@@ -11,22 +11,22 @@
     function Camera ($q) {
         return {
             getPicture: function(options) {
-              var q = $q.defer();
+                var q = $q.defer();
 
-              try {
+                try {
                   navigator.camera.getPicture(function(result) {
                     // Do any magic you need
                     q.resolve(result);
                   }, function(err) {
                     q.reject(err);
                   }, options);
-              }
-              catch(err) {
-                  // BEURK ! Il faut mocker navigator.camera
-                  q.reject("img/ionic.png");
-              }
+                }
+                catch(err) {
+                  q.reject("img/ionic.png");                    
+                }
 
-              return q.promise;
+                
+                return q.promise;
             }
         }
     }

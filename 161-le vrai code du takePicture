@@ -7,7 +7,7 @@
 
            var options = { 
                 quality : 75, 
-                allowEdit : true,
+                allowEdit : false,
                 targetWidth: 300,
                 targetHeight: 300,
                 saveToPhotoAlbum: false

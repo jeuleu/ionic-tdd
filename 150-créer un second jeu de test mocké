@@ -1,0 +1,9 @@
+ - Service Camera mocké
+ 
+describe('Unit: CameraServiceMock', function() {
+    // Load the module to test, add your module name in here!
+    beforeEach(module('Selfie'));
+    
+    var ctrl, scope;
+    
+});

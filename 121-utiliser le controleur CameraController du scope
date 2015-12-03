@@ -6,10 +6,8 @@
     // inject the $controller and $rootScope services
     // in the beforeEach block
     beforeEach(inject(function($controller, $rootScope) {
-
         // create a new scope that's a child of the $rootScope
         scope = $rootScope.$new();
-
         ctrl = $controller('CameraController as CamCtrl', {
             $scope: scope
         });

@@ -4,17 +4,18 @@
 //    describe('Unit2: Mock Camera service', function() {
 
 
-        beforeEach(inject(function($rootScope, $controller, $q) {
-            rootScope = $rootScope;
-            scope = $rootScope.$new();
-            ctrl = $controller;
+    beforeEach(inject(function($rootScope, $controller, $q) {
+        rootScope = $rootScope;
+        scope = $rootScope.$new();
+        ctrl = $controller;
 
-            CameraSrvMock = {
-                getPicture: function(){
-                    // mock promise
-                    var deferred = $q.defer();
-                    deferred.resolve('Image OK');
-                    return deferred.promise;
-                }            
-            };
-        })); 
+        CameraSrvMock = {
+            getPicture: function(){
+                // mock promise
+                var deferred = $q.defer();
+                deferred.resolve('Image OK');
+                return deferred.promise;
+            }            
+        };
+    }));     
+

@@ -40,221 +40,16 @@ ionic build android
 ==============================
 
 
-01- Présenter l'arborescence du projet
 
 
-02- Renommer l'application en Selfie
 
-- Modifier js\app.js
+ 
 
-angular.module('Selfie', ['ionic'])
-    
-- Modifier index.html
-
-  <body ng-app="Selfie">
-
-
-        <h1 class="title">Ionic Selfie</h1>
-
-      <ion-content>
-          <p ng-show="imageURI === undefined">Rien à voir...</p>
-          <img ng-show="imageURI !== undefined" ng-src="{{imageURI}}">
-          <ion-button class="button button-calm" ng-click="takePicture()">Prendre ma photo</ion-button>
-      </ion-content>
-
-
-03- Configuration Karma
-
-Onglet 3 :
-karma init karma.conf.js
-
-Editer le fichier, mettre les fichiers suivants:
-
-    basePath: 'www',
-    
-    files: [
-        'lib/ionic/js/ionic.bundle.js',
-        '../node_modules/angular-mocks/angular-mocks.js',
-        
-        'js/app.js',
-        'js/**/*.module.js',
-        'js/**/*.controller.js',
-        'js/**/*.service.js',
-        
-        '../test/unit/**/*Spec.js',
-    ],
-
-
-- lancer Karma
-
-karma start karma.conf.js
-
-
-
-
-
-04- Ecriture du test de création du service CameraController
-
-- création du répertoire test\unit
-- création du fichier CameraControllerSpec.js
-
-describe('Unit: module', function() {
-    // Load the module to test, add your module name in here!
-    beforeEach(module('Selfie'));
-
-    var ctrl, scope;
-    
-});
-
-
-- écrire la création du controller et le test
-    beforeEach(module('Selfie'));
-
-
-- on a besoin du controller du module Camera
-
-    // inject the $controller and $rootScope services
-    // in the beforeEach block
-    beforeEach(inject(function($controller, $rootScope) {
-
-        // create a new scope that's a child of the $rootScope
-        scope = $rootScope.$new();
-
-        ctrl = $controller('CameraController as CamCtrl', {
-            $scope: scope
-        });
-    }));
-    
-
-- Premier test    
-    
-
-    it('should be able to take a picture', function() {
-        expect(scope.CamCtrl.takePicture).toBeDefined();
-    });
-    
-    
->> ERROR : CameraController is not a function, got undefined
-
-
-
-04- Création du module camera à la JohnPapa
-
-- création répertoire "camera"
-- création du fichier camera.module.js
-
-(function() {
-    'use strict';
-
-	angular.module('Selfie.Camera.module', []);
-})();
-
-
-
-
-- Ajouter le module Selfie.camera à l'application : app.js
-XXXXXXXXXXXXXXXXXXXX
-XXXX IMPORTANT XXXXX
-
-angular.module('Selfie', ['ionic','Selfie.Camera.module'])
-
-XXXX IMPORTANT XXXXX
-XXXXXXXXXXXXXXXXXXXX
-
-
->> ERROR   Error: [ng:areq] Argument 'CameraController' is not a function, got undefined
-
-
-- création du fichier camera\camera.controller.js
-
-(function() {
-    'use strict';
-        
-    var injectParams = [];
-})();
-
-- création du fichier camera\camera.controller.js
-
-//(function() {
-//    'use strict';
-
-    angular.module('Selfie.Camera.module').
-    	controller('CameraController', CameraCtrl);
-        
-//    var injectParams = [];
-//})();
-
-
->> ERROR   Error: [ng:areq] Argument 'CameraController' is not a function, got undefined
-
-- Compléter le controller
-
-    var injectParams = [];
-
-    CameraCtrl.$inject = injectParams;
-    function CameraCtrl() {
-        /* jshint validthis: true */			
-        var vm = this;
-
-        vm.takePicture = function() {
-        }
-    }
-
->> Test OK
-    
-    
-    
-
-    
-    
-- Définir la fonction
-
-    function CameraCtrl() {
-        /* jshint validthis: true */			
-        var vm = this;
-
-        vm.takePicture = function() {
-        }
-    }
-
-05- Aller voir la documentation Ionic / Learn Ionic / Formulas / Camera
-
-http://ionicframework.com/docs/
-http://learn.ionicframework.com/formulas/
-http://learn.ionicframework.com/formulas/cordova-camera/
-    
-- injecter le service CameraSrv
-
-    var injectParams = ["CameraSrv"];
-    
-    CameraCtrl.$inject = injectParams;
-    function CameraCtrl(CameraSrv) {
-
->> ERROR : [$injector:unpr] Unknown provider: CameraSrvProvider <- CameraSrv <- CameraController
-
-
-
-06- Ecrire le test du mock
-
-describe("Unit: controlleur avec service Mocké", function(){
-    var rootScope, scope, controller, CameraSrvMock;
-    var DEFERRED_OK = 0;
-    var DEFERRED_KO = 1;
-    var deferredOut = DEFERRED_OK;
-
-    beforeEach(module('Selfie'));
-    
-    
 });
 
 -- Compléter en définissant le service mocké
 
-    beforeEach(inject(function($rootScope, $controller, $q) {
-        rootScope = $rootScope;
-        scope = $rootScope.$new();
-        controller = $controller;
-
-        CameraSrvMock = {
+    CameraSrvMock = {
         getPicture: function(){
                 // mock promise
                 var deferred = $q.defer();
@@ -274,6 +69,9 @@ describe("Unit: controlleur avec service Mocké", function(){
             }            
         };
     }));  
+
+
+
 
 
 - tester ce service mocké
@@ -348,56 +146,8 @@ et après :
 
 
 
-06- Créer le service camera.service.js  "vide"
-
-(function() {
-    'use strict';
-
-    angular.module('Selfie.Camera.module').
-        factory('CameraSrv', Camera);
-    
-    var injectParams = ["$q"];
-    
-    /** Functions code */    
-    Camera.$inject = injectParams;
-    function Camera ($q) {
-        return {
-            getPicture: function(options) {
-                return null;
-            }
-        }
-    }
-})();
 
 
-06 Ajouter la définition du service
-
-    function Camera ($q) {
-        return {
-            getPicture: function(options) {
-            
-            
-            
-            
-              var q = $q.defer();
-
-              navigator.camera.getPicture(function(result) {
-                // Do any magic you need
-                q.resolve(result);
-              }, function(err) {
-                q.reject(err);
-              }, options);
-
-              return q.promise;
-              
-              
-              
-            }
-      }
-    }
-
-
->> Tests OK
 
 
 
@@ -406,51 +156,7 @@ et après :
 constater qu'il y a des erreurs 
 >> ERROR : Error: [$injector:nomod] Module 'Selfie.Camera.module' is not available!
 
-- inclure les nouveaux fichiers
 
-    <script src="js/camera/camera.module.js"></script>
-    <script src="js/camera/camera.controller.js"></script>
-    <script src="js/camera/camera.service.js"></script>
-    
-- utiliser le controller
-
-      <ion-content ng-controller="CameraController as CamCtrl">
-          <p ng-show="CamCtrl.imageURI === undefined">Rien à voir...</p>
-          <img ng-show="CamCtrl.imageURI !== undefined" ng-src="{{CamCtrl.imageURI}}">
-          <ion-button class="button button-calm" ng-click="CamCtrl.takePicture()">Mon selfie</ion-button>
-      </ion-content>
-
-
-
-    var injectParams = ["CameraSrv"];
-    
-    /** Functions code */    
-	CameraCtrl.$inject = injectParams;
-	function CameraCtrl(CameraSrv) {
-		/* jshint validthis: true */			
-		var vm = this;
-        
-        vm.takePicture = function() {
-        }
-    }
-
->> ERROR Error: [$injector:unpr] Unknown provider: CameraSrvProvider <- CameraSrv <- CameraController
-
-
-
-
-
-06- Appeler le service dans le controller :
-
-- copier/coller depuis la doc
-
-  $scope.getPhoto = function() {
-    Camera.getPicture().then(function(imageURI) {
-      console.log(imageURI);
-    }, function(err) {
-      console.err(err);
-    });
-    
     
 - rajouter des paramètres et adapter :
 - $scope -> CameraSrv
@@ -469,7 +175,7 @@ constater qu'il y a des erreurs
               console.log(imageURI);
               vm.imageURI = imageURI;
             }, function(err) {
-              console.err(err);
+              console.log(err);
             });
 
 >> ERROR :   Error: [$injector:unpr] Unknown provider: CameraSrvProvider <- CameraSrv <- CameraController  
@@ -483,10 +189,11 @@ constater qu'il y a des erreurs
     angular.module('Selfie.Camera.module').
         factory('CameraSrv', Camera);
     
-    var injectParams = ["$q"];
+//    var injectParams = ["$q"];
     
     /** Functions code */    
-    Camera.$inject = injectParams;
+//    Camera.$inject = injectParams;
+    
     function Camera ($q) {
         return {
             getPicture: function(options) {
@@ -508,7 +215,9 @@ constater qu'il y a des erreurs
             }
         }
     }
-})();
+
+
+//})();
 
 
 08- MOCKER le service : créer une spec de mock
@@ -519,9 +228,6 @@ VVVVVVVVVVVVVVVVVVVVVVVVVVVV
 
 describe("Test controller avec service Mocké", function(){
     var rootScope, scope, controller, CameraSrvMock;
-    var DEFERRED_OK = 0;
-    var DEFERRED_KO = 1;
-    var deferredOut = DEFERRED_OK;
 
     beforeEach(module('Selfie'));
 
@@ -531,28 +237,16 @@ describe("Test controller avec service Mocké", function(){
         controller = $controller;
 
         CameraSrvMock = {
-        getPicture: function(){
+            getPicture: function(){
                 // mock promise
                 var deferred = $q.defer();
-                
-                switch (deferredOut) {
-                case DEFERRED_KO:
-                    deferred.reject('KO IMAGE KO');
-                    break;
-                case DEFERRED_OK:
-                    deferred.resolve('Image OK');
-                    break;
-                default:
-                    deferred.reject('????????');
-                    break;
-                }
+                deferred.resolve('Image OK');
                 return deferred.promise;
             }            
         };
     }));  
 
     it('Test promise est OK', function() {
-        deferredOut = DEFERRED_OK;
         controller("CameraController as CamCtrl", {
                 $scope: scope,
                 CameraSrv: CameraSrvMock
@@ -560,17 +254,6 @@ describe("Test controller avec service Mocké", function(){
             scope.CamCtrl.takePicture();
             scope.$digest();
             expect(scope.CamCtrl.imageURI).toBe('Image OK')
-    });
-
-    it('Test promise est KO', function() {
-    deferredOut = DEFERRED_KO;
-        controller("CameraController as CamCtrl", {
-            $scope: scope,
-            CameraSrv: CameraSrvMock
-        });
-        scope.CamCtrl.takePicture();
-        scope.$digest();
-        expect(scope.CamCtrl.imageURI).toBe('KO IMAGE KO')
     });
 });
 

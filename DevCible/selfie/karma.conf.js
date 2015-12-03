@@ -1,5 +1,5 @@
 // Karma configuration
-// Generated on Fri Nov 27 2015 13:33:40 GMT+0100 (Paris, Madrid)
+// Generated on Wed Dec 02 2015 17:44:11 GMT+0100 (Paris, Madrid)
 
 module.exports = function(config) {
   config.set({
@@ -19,7 +19,7 @@ module.exports = function(config) {
         '../node_modules/angular-mocks/angular-mocks.js',
         
         'js/app.js',
-        'js/**/*.modules.js',
+        'js/**/*.module.js',
         'js/**/*.controller.js',
         'js/**/*.service.js',
         
