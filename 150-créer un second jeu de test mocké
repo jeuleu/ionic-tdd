@@ -1,4 +1,6 @@
  - Service Camera mocké
+ - créer fichier CameraServiceMock.js
+ 
  
 describe('Unit: CameraServiceMock', function() {
     // Load the module to test, add your module name in here!

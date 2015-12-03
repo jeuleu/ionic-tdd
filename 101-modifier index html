@@ -8,7 +8,13 @@
       <ion-content>
       
           <p ng-show="CamCtrl.imageURI === undefined">Rien à voir...</p>
-          <img ng-show="imageURI !== undefined" ng-src="{{CamCtrl.imageURI}}">
+          <img ng-show="CamCtrl.imageURI !== undefined" ng-src="{{CamCtrl.imageURI}}">
           <ion-button class="button button-calm" ng-click="CamCtrl.takePicture()">Prendre ma photo</ion-button>
           
       </ion-content>
+      
+      
+      
+- corriger le app.js
+
+

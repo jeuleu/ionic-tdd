@@ -3,12 +3,9 @@
 >> ERROR : undefined is not an object
 TEST IMPOSSIBLE EN LOCAL sans try-catch
 
-//    function Camera ($q) {
-//        return {
-//            getPicture: function(options) {
-            
-            
-            
+    function Camera ($q) {
+        return {
+            getPicture: function(options) {  
             
               var q = $q.defer();
 
@@ -20,8 +17,6 @@ TEST IMPOSSIBLE EN LOCAL sans try-catch
               }, options);
 
               return q.promise;
-              
-              
-              
-//            }
-//      }
+                            
+            }
+      }
