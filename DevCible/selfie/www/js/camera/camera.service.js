@@ -22,7 +22,7 @@
                   }, options);
                 }
                 catch(err) {
-                  q.reject("img/ionic.png");                    
+                  q.reject("Fatal error: navigator.camera.getPicture()");                  
                 }
 
                 

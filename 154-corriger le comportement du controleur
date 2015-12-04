@@ -1,0 +1,9 @@
+- retourner une image par défaut pour le controleur
+
+
+//            }, function(err) {
+                
+              console.log('takePicture: ' + err);
+              vm.imageURI = 'img/ionic.png';
+              
+//            });

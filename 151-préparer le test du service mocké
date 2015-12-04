@@ -1,8 +1,0 @@
-- définir le test que l'on veut faire
-
-
-    it('should be able to take a picture', function() {
-        scope.CamCtrl.takePicture();
-        scope.$digest();  
-        expect(scope.CamCtrl.imageURI).toBe('Image OK');
-    });

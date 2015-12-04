@@ -1,0 +1,31 @@
+- définir le service mocké
+
+
+    beforeEach(inject(function($rootScope, $controller, $q) {
+        rootScope = $rootScope;
+        scope = $rootScope.$new();
+        ctrl = $controller;
+
+        CameraSrvMock = {
+            getPicture: function(){
+                // mock promise
+                var deferred = $q.defer();
+                
+                switch (deferredOut) {
+                    case DEFERRED_OK:
+                        deferred.resolve('Image OK');
+                    break;
+
+                    case DEFERRED_KO:
+                        deferred.reject('KO-Image-KO');
+                    break;
+                    
+                    default:
+                        deferred.reject('????????');
+                    break;
+                }
+                return deferred.promise;
+            }            
+        };
+    }));   
+

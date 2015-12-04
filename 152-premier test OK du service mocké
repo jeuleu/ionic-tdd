@@ -1,0 +1,15 @@
+- définir le test que l'on veut faire
+
+
+    it('getPicture should return Image OK in case of success', function() {
+        deferredOut = DEFERRED_OK;
+        
+        ctrl("CameraController as CamCtrl", {
+            $scope: scope,
+            CameraSrv: CameraSrvMock
+        });
+        
+        scope.CamCtrl.takePicture();
+        scope.$digest();
+        expect(scope.CamCtrl.imageURI).toBe('Image OK')
+    });

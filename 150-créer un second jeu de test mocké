@@ -2,10 +2,13 @@
  - créer fichier CameraServiceMock.js
  
  
-describe('Unit: CameraServiceMock', function() {
-    // Load the module to test, add your module name in here!
-    beforeEach(module('Selfie'));
+describe("Unit: CameraService (Mock)", function(){
+    var rootScope, scope, ctrl, CameraSrvMock;
+
+    var DEFERRED_OK = 0;
+    var DEFERRED_KO = 1;
+    var deferredOut = DEFERRED_OK;
     
-    var ctrl, scope;
+    beforeEach(module('Selfie'));
     
 });
