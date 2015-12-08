@@ -11,6 +11,7 @@
     function Camera ($q) {
         return {
             getPicture: function(options) {
+            
                 var q = $q.defer();
 
                 try {
@@ -22,9 +23,8 @@
                   }, options);
                 }
                 catch(err) {
-                  q.reject("Fatal error: navigator.camera.getPicture()");                  
+                  q.reject("Fatal error: navigator.camera.getPicture()");                                 
                 }
-
                 
                 return q.promise;
             }

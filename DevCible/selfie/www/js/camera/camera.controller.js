@@ -12,7 +12,7 @@
         var vm = this;
 
         vm.takePicture = function() {
-           var options = { 
+            var options = { 
                 quality : 75, 
                 allowEdit : false,
                 targetWidth: 300,
@@ -26,10 +26,11 @@
             }, function(err) {
                 
               console.log('takePicture: ' + err);
+
               vm.imageURI = 'img/ionic.png';
-                
+
             });
+
         }
     }
-
 })();
