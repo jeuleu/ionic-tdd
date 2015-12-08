@@ -1,0 +1,8 @@
+- injecter le service CameraService
+
+
+    var injectParams = ["CameraSrv"];
+    
+//    CameraCtrl.$inject = injectParams;
+    
+    function CameraCtrl(CameraSrv) {

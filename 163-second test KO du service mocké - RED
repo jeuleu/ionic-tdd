@@ -1,7 +1,6 @@
 - Utiliser le service mocké dans le test
 
->> ERROR : 'Oh Toulouse !' to be 'Image Ok'
->> 2 tests plantent...
+>> ERROR : Expected unidefined to be 'img/ionic.png'
 
     it('getPicture should return KO-Image-KO in case of failure', function() {
         deferredOut = DEFERRED_KO;
@@ -13,5 +12,5 @@
         
         scope.CamCtrl.takePicture();
         scope.$digest();
-        expect(scope.CamCtrl.imageURI).toBe('KO-Image-KO')
+        expect(scope.CamCtrl.imageURI).toBe('img/ionic.png');
     });

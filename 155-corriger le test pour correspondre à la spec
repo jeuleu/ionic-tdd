@@ -1,7 +1,0 @@
-- Controler que l'on retourne la bonne image par défaut
-
-//        scope.CamCtrl.takePicture();
-//        scope.$digest();
-//        expect(scope.CamCtrl.imageURI).toBe('KO-Image-KO')
-        
-        expect(scope.CamCtrl.imageURI).toBe('img/ionic.png')

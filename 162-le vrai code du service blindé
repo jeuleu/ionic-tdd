@@ -1,7 +1,10 @@
 - le code "durci" avec un try/catch
 
 
->> ERROR ReferenceError: Can't find variable: q
+>> ERROR Expected undefined to be defined
+
+LOG: 'takePicture: Fatal error: navigator.camera.getPicture()'
+>> La caméra n'existe pas en local
 
 
 

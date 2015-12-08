@@ -1,0 +1,8 @@
+- Définir la valeur pour imageURI
+
+
+            vm.imageURI = "Oh Toulouse !";
+
+            vm.imageURI = "Bonjour Valbonne !"
+
+            vm.imageURI = "Bonjour Paray !"

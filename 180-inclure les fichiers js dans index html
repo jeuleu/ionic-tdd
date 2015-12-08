@@ -1,0 +1,9 @@
+- inclure les nouveaux fichiers
+
+//    <script src="js/app.js"></script>
+    
+    
+    <script src="js/camera/camera.module.js"></script>
+    <script src="js/camera/camera.controller.js"></script>
+    <script src="js/camera/camera.service.js"></script>
+    

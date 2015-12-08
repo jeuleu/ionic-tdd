@@ -1,0 +1,6 @@
+- outils de développement sur la version locale
+
+point d'arret sur le catch(err)
+
+    q.reject("Fatal error: navigator.camera.getPicture()")
+    

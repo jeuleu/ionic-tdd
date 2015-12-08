@@ -1,0 +1,10 @@
+- retourner 'Image OK'
+
+>> SUCCESS
+
+
+//        vm.takePicture = function() {
+
+            vm.imageURI = "Imag OK"
+            
+//        }

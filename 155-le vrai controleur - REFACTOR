@@ -1,11 +1,13 @@
-- écrire le vrai code du takePicture
+- le vrai code du service
 
->> ERROR  Unknown provide: CameraSrvProvider <- CameraSrv <- CameraController
+>> SUCCESS du second test, mais
+
+>> ERROR du premier test ! CameraSrvProvider <- CameraSrv <- CameraController
 
 
- //       vm.takePicture = function() {
+//        vm.takePicture = function() {
 
-           var options = { 
+            var options = { 
                 quality : 75, 
                 allowEdit : false,
                 targetWidth: 300,
@@ -17,11 +19,9 @@
               console.log(resultImg);
               vm.imageURI = resultImg;
             }, function(err) {
-            
-              console.log("takePicture: " + err);
-              
-              vm.imageURI = "img/ionic.png";
+                
+              console.log('takePicture: ' + err);
+                
             });
-
+            
 //        }
-

@@ -198,65 +198,94 @@
 </section>
 
 <section>
-    <h2>Que va-t-on <em>développer</em> aujourd'hui ?</h2>
-    <hr />
-            <img src="res/selfieScreenshot.png"  style="position:fixed; right:0px; top:100px; height:300px; border:none;">
-        <div>
-            <h3>Réaliser avec <em>Ionic</em> et en <em>TDD</em></h3>
-            <p>l'application indispensable</p>
-            <p>pour se prendre en <em>Selfie</em> !</p>            
-        </div>
+    <section>
+        <h2>Que va-t-on <em>développer</em> aujourd'hui ?</h2>
+        <hr />
+                <img src="res/selfieScreenshot.png"  style="position:fixed; right:0px; top:100px; height:300px; border:none;">
+            <div>
+                <h3>Réaliser avec <em>Ionic</em> et en <em>TDD</em></h3>
+                <p>l'application indispensable</p>
+                <p>pour se prendre en <em>Selfie</em> !</p>            
+            </div>
 
-        <div class="fragment">
-            <br />
-            <h3>Pourquoi ça a un intérêt ?</h3>
-            <ul>
-                <li>Utiliser la puissance d'<em>AngularJS</em></li>
-                <li><em>Mocker</em> les ressouces du mobile pour développer en local</li>
-            </ul>
+            <div class="fragment">
+                <br />
+                <h3>Pourquoi ça a un intérêt ?</h3>
+                <ul>
+                    <li>Utiliser la puissance d'<em>AngularJS</em></li>
+                    <li><em>Mocker</em> les ressouces du mobile pour développer en local</li>
+                </ul>
+    <!--
+            </div>
+
+            <div class="fragment">
+    -->
+                <br /><br />
+                <h3>Concrètement</h3>
+                <ul>
+                    <li>Tests = Spécifications : <em>Jasmine</em> + <em>Karma</em></li>
+                    <li>Composants à la <em>JohnPapa</em> : <a href="http://www.johnpapa.net/angular-style-guide/">Angular Style Guide </a></li>
+                </ul>
+    </section>
+
+
 <!--
-        </div>
-
-        <div class="fragment">
+    <section data-transition="none">
+        <h2>Que va-t-on <em>développer</em> aujourd'hui ?</h2>
+        <hr />
+        <img src="res/selfie-achitecture01.gif">
+    </section>
 -->
-            <br /><br />
-            <h3>Concrètement</h3>
-            <ul>
-                <li>Tests = Spécifications : <em>Jasmine</em> + <em>Karma</em></li>
-                <li>Composants à la <em>JohnPapa</em> : <a href="http://www.johnpapa.net/angular-style-guide/">Angular Style Guide </a></li>
-            </ul>
+
+    <section data-transition="none">
+        <h2>Que va-t-on <em>développer</em> aujourd'hui ?</h2>
+        <hr />
+        <img src="res/selfie-achitecture02.gif">
+    </section>
+
+    <section data-transition="none">
+        <h2>Que va-t-on <em>développer</em> aujourd'hui ?</h2>
+        <hr />
+        <img src="res/selfie-achitecture03.gif">
+    </section>
+
+    <section data-transition="none">
+        <h2>Que va-t-on <em>développer</em> aujourd'hui ?</h2>
+        <hr />
+        <img src="res/selfie-achitecture04.gif">
+    </section>
+
+    <section data-transition="none">
+        <h2>Que va-t-on <em>développer</em> aujourd'hui ?</h2>
+        <hr />
+        <img src="res/selfie-achitecture05.gif">
+    </section>
+
 </section>
+    
 
 <section>
     <section>
         <h2>On <em>prépare</em> le terrain&hellip;</h2>
         <p><i>prérequis :</i> <em>Node.js</em></p>
         <hr />
+        
 
-        <div class="fragment">
-            <h4>Installation de <em>Ionic</em></h4>
-            <pre><code data-trim>
-npm install -g cordova ionic
-            </code></pre> 
-        </div>
-
-        <div class="fragment">
+        <ul>
+            <li>
+                Installation de <em>Ionic</em>
+            </li>
             <br />
-            <h4>Installation de l'environnement de <em>test</em></h4>
-            <pre><code data-trim>
-npm install karma -–save-dev
-npm install karma-jasmine karma-chrome-launcher -–save-dev
-npm install karma-cli
-            </code></pre>      
-        </div>    
-
-        <div class="fragment">
+            <li>
+                Installation de l'<em>environnement de test</em>
+                <br /><code>jasmine, karma</code>
+            </li>
             <br />
-            <h4>Installation de l'environnement de <em>mock</em></h4>
-            <pre><code data-trim>
-npm install angular-mocks
-            </code></pre>      
-        </div>    
+            <li>
+                Installation des <em>outils de mock</em>
+                <br /><code>angular-mocks</code>
+            </li>
+        </ul>   
 
     </section>
     
@@ -274,31 +303,34 @@ ionic start selfie blank
 cd selfie
             </code></pre>
 
+<!--
         </div>
         
         <div class="fragment">
+-->
             <br />
             <h4>Plateformes <em>cibles</em> et <em>plugins</em></h4>
             <pre><code data-trim>
 ionic platform add android
 ionic plugin add cordova-plugin-camera
             </code></pre>
+<!--
         </div>
 
         <div class="fragment">
+-->
             <br />
             <h4><em>Configuration</em> de Karma</h4>
             <pre><code data-trim>
 karma init karma.conf.js
             </code></pre>
 <!--
-            <small>Testing framework: <em>Jasmine</em> - Browser: <em>PhantomJS</em> - Watch files: <em>yes</em></small>
--->
         </div>        
 
         <div class="fragment">
+-->
             <br />
-            <h4>Lancement <em>en local</em> et sur le device</h4>
+            <h4>Lancement <em>en local</em> et <em>sur le device</em></h4>
             <pre><code data-trim>
 ionic serve
 ionic run android
@@ -306,50 +338,53 @@ ionic run android
         </div>
         
     </section>
-    
-<!--
-    <section>
-        <h2>On <em>prépare</em> le terrain&hellip;</h2>
-        <hr />
-
-        <div>
-            <h4>Lancement <em>en local</em> de l'application</h4>
-            <pre><code data-trim>
-ionic serve
-            </code></pre>
-        </div>
-        
-        <div class="fragment">
-            <br />
-            <h4>Lancement des <em>tests</em></h4>
-            <pre><code data-trim>
-karma start karma.conf.js
-            </code></pre>
-        </div>        
-        
-        <div class="fragment">
-            <br />
-            <h4>Lancement de l'application <em>sur le device</em></h4>
-            <pre><code data-trim>
-ionic build android
-ionic run android
-            </code></pre>
-        </div>        
-    </section>
--->
-    
 </section>
 
+    
 <section data-transition="zoom">
     <h2>&hellip; et maintenant <em>on code !</em></h2>
 </section>
 
+    
 <section data-transition="zoom">
 	<h1>Questions ?</h1>
 
     <img src="res/Help-icon.png" class="nobox">
 </section>
 
+
+<section>
+    <section>
+        <h2>Annexe : préparation du <em>projet</em></h2>
+        <p><i>prérequis :</i> <em>Node.js</em></p>
+        <hr />
+
+        <div>
+            <h4>Installation de <em>Ionic</em></h4>
+            <pre><code data-trim>
+npm install -g cordova ionic
+            </code></pre> 
+        </div>
+
+        <div>
+            <br />
+            <h4>Installation de l'<em>environnement de test</em></h4>
+            <pre><code data-trim>
+npm install karma -–save-dev
+npm install karma-jasmine karma-chrome-launcher -–save-dev
+npm install karma-cli
+            </code></pre>      
+        </div>    
+
+        <div>
+            <br />
+            <h4>Installation des <em>outils de mock</em></h4>
+            <pre><code data-trim>
+npm install angular-mocks
+            </code></pre>      
+        </div>    
+
+    </section>
                 
 			</div>
 

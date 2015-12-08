@@ -1,4 +1,4 @@
-- Le vrai code du service
+- Le vrai code du service (ne fonctionne pas en local)
 
 >> ERROR : undefined is not an object
 TEST IMPOSSIBLE EN LOCAL sans try-catch

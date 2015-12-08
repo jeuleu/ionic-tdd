@@ -1,11 +1,3 @@
-- inclure les nouveaux fichiers
-
-
-    <script src="js/camera/camera.module.js"></script>
-    <script src="js/camera/camera.controller.js"></script>
-    <script src="js/camera/camera.service.js"></script>
-    
-
 - utiliser le controller
 
       <ion-content ng-controller="CameraController as CamCtrl">
