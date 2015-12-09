@@ -19,9 +19,7 @@
                   console.log('takePicture OK: ' + resultImg);
                   vm.imageURI = resultImg;
                 }, function(err) {
-
                   console.log('takePicture FAILED: ' + err);
-
                 });
             
 //        }

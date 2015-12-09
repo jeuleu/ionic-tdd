@@ -2,7 +2,7 @@
 
 >> SUCCESS pour les  deux tests
 
-            vm.imageURI = 'img/ionic.png';
+                vm.imageURI = 'img/ionic.png';
 
 //            CameraSrv.getPicture(options).then(function(imageURI) {
 //                vm.imageURI = imageURI;

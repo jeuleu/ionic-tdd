@@ -1,0 +1,12 @@
+- Créer le service camera.service.js  "vide"
+
+
+(function() {
+    'use strict';
+
+    angular.module('Selfie.Camera.module').
+        factory('CameraSrv', Camera);
+    
+    var injectParams = ["$q"];
+
+})();

@@ -21,7 +21,7 @@ LOG: 'takePicture: Fatal error: navigator.camera.getPicture()'
                     }, options);
                 }
                 catch(err) {
-                    q.reject("Fatal error: navigator.camera.getPicture()");              
+                    q.reject("Fatal error: navigator getPicture()");              
                 }
 
                 

@@ -1,18 +1,8 @@
-- Créer le service camera.service.js  "vide"
+- continuer l'écriture du service
 
 L'appli s'affiche correctement mais...
-
 >> ERROR  TypeError: 'null' is not an object
 
-
-
-(function() {
-    'use strict';
-
-    angular.module('Selfie.Camera.module').
-        factory('CameraSrv', Camera);
-    
-    var injectParams = ["$q"];
     
     /** Functions code */    
     Camera.$inject = injectParams;
@@ -25,4 +15,3 @@ L'appli s'affiche correctement mais...
             }
         }
     }
-})();
