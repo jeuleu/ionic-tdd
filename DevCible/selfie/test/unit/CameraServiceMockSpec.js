@@ -6,7 +6,7 @@ describe("Unit: CameraService (Mock)", function(){
     var deferredOut = DEFERRED_OK;
     
     beforeEach(module('Selfie'));
-
+    
     beforeEach(inject(function($rootScope, $controller, $q) {
         rootScope = $rootScope;
         scope = $rootScope.$new();
@@ -15,12 +15,11 @@ describe("Unit: CameraService (Mock)", function(){
         CameraSrvMock = {
             getPicture: function(){
                 // mock promise
-                var deferred = $q.defer();
+                var deferred = $q.defer();        
                 switch (deferredOut) {
                     case DEFERRED_OK:
                         deferred.resolve('Image OK');
                     break;
-
                     case DEFERRED_KO:
                         deferred.reject('KO-Image-KO');
                     break;
@@ -28,8 +27,8 @@ describe("Unit: CameraService (Mock)", function(){
                 return deferred.promise;
             }            
         };
-    }));
-
+    }));  
+    
     it('getPicture() should return Image OK in case of success', function() {
         deferredOut = DEFERRED_OK;
         
