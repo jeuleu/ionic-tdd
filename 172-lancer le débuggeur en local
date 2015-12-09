@@ -1,0 +1,4 @@
+- lancer dans l'application les Outils de développement
+
+>> Erreur JavaScript !
+Error: [$injector:unpr] Unknown provider: CameraSrvProvider <- CameraSrv <- CameraController

@@ -5,13 +5,13 @@
     	controller('CameraController', CameraCtrl);
         
     var injectParams = ["CameraSrv"];
-    
     CameraCtrl.$inject = injectParams;
     function CameraCtrl(CameraSrv) {
         /* jshint validthis: true */			
         var vm = this;
 
         vm.takePicture = function() {
+
             var options = { 
                 quality : 75, 
                 allowEdit : false,
@@ -20,17 +20,14 @@
                 saveToPhotoAlbum: false
             };
 
-            CameraSrv.getPicture(options).then(function(resultImg) {
-              console.log(resultImg);
-              vm.imageURI = resultImg;
+            vm.imageURI = 'img/ionic.png';
+
+            CameraSrv.getPicture(options).then(function(imageURI) {
+                vm.imageURI = imageURI;
+                console.log(imageURI);
             }, function(err) {
-                
-              console.log('takePicture: ' + err);
-
-              vm.imageURI = 'img/ionic.png';
-
+                console.err('takePicture FAILED: ' + err);
             });
-
         }
     }
 })();

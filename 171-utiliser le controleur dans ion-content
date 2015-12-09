@@ -1,0 +1,6 @@
+- utiliser le controller
+
+>> PAS CONTENT : ça ne s'affiche pas correctement
+
+
+      <ion-content ng-controller="CameraController as CamCtrl">

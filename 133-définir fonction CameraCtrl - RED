@@ -1,6 +1,6 @@
 - définir la fonction CameraCtrl :
 
->> Test OK
+>> ERROR Expected 'undefined' to be 'defined'
 
     CameraCtrl.$inject = injectParams;
     function CameraCtrl() {
@@ -11,24 +11,3 @@
         }
     }
     
-    
-    CameraCtrl.$inject = injectParams;
-    function CameraCtrl() {
-        /* jshint validthis: true */			
-        var vm = this;
-
-        vm.takePicture = function() {
-            vm.imageURI = "Bonjour Valbonne !"
-        }
-    }
-
-
-    CameraCtrl.$inject = injectParams;
-    function CameraCtrl() {
-        /* jshint validthis: true */			
-        var vm = this;
-
-        vm.takePicture = function() {
-            vm.imageURI = "Bonjour Paray !"
-        }
-    }

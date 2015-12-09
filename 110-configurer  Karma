@@ -22,7 +22,3 @@ karma init karma.conf.js
         '../test/unit/**/*Spec.js',
     ],
 
-
-- lancer Karma
-
-karma start karma.conf.js

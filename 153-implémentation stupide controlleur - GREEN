@@ -5,6 +5,6 @@
 
 //        vm.takePicture = function() {
 
-            vm.imageURI = "Imag OK"
+            vm.imageURI = "Image OK";
             
 //        }

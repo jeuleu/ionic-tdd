@@ -1,5 +1,7 @@
 - Créer le service camera.service.js  "vide"
 
+L'appli s'affiche correctement mais...
+
 >> ERROR  TypeError: 'null' is not an object
 
 

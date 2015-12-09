@@ -7,7 +7,6 @@ describe("Unit: CameraService (Mock)", function(){
     
     beforeEach(module('Selfie'));
 
-
     beforeEach(inject(function($rootScope, $controller, $q) {
         rootScope = $rootScope;
         scope = $rootScope.$new();
@@ -17,7 +16,6 @@ describe("Unit: CameraService (Mock)", function(){
             getPicture: function(){
                 // mock promise
                 var deferred = $q.defer();
-                
                 switch (deferredOut) {
                     case DEFERRED_OK:
                         deferred.resolve('Image OK');
@@ -26,18 +24,13 @@ describe("Unit: CameraService (Mock)", function(){
                     case DEFERRED_KO:
                         deferred.reject('KO-Image-KO');
                     break;
-                    
-                    default:
-                        deferred.reject('????????');
-                    break;
                 }
                 return deferred.promise;
             }            
         };
-    }));   
-    
+    }));
 
-    it('getPicture should return Image OK in case of success', function() {
+    it('getPicture() should return Image OK in case of success', function() {
         deferredOut = DEFERRED_OK;
         
         ctrl("CameraController as CamCtrl", {
@@ -48,18 +41,5 @@ describe("Unit: CameraService (Mock)", function(){
         scope.CamCtrl.takePicture();
         scope.$digest();
         expect(scope.CamCtrl.imageURI).toBe('Image OK')
-    });
-    
-    it('getPicture should return KO-Image-KO in case of failure', function() {
-        deferredOut = DEFERRED_KO;
-        
-        ctrl("CameraController as CamCtrl", {
-            $scope: scope,
-            CameraSrv: CameraSrvMock
-        });
-        
-        scope.CamCtrl.takePicture();
-        scope.$digest();
-        expect(scope.CamCtrl.imageURI).toBe('img/ionic.png');
     });
 });

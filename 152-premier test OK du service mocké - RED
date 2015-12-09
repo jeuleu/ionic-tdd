@@ -2,7 +2,7 @@
 
 >> ERROR Expected 'Bonjour xxx !' to be 'Image OK'
 
-    it('getPicture should return Image OK in case of success', function() {
+    it('getPicture() should return Image OK in case of success', function() {
         deferredOut = DEFERRED_OK;
         
         ctrl("CameraController as CamCtrl", {

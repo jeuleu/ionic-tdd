@@ -5,7 +5,7 @@
         factory('CameraSrv', Camera);
     
     var injectParams = ["$q"];
-    
+        
     /** Functions code */    
     Camera.$inject = injectParams;
     function Camera ($q) {
@@ -15,18 +15,21 @@
                 var q = $q.defer();
 
                 try {
-                  navigator.camera.getPicture(function(result) {
-                    // Do any magic you need
-                    q.resolve(result);
-                  }, function(err) {
-                    q.reject(err);
-                  }, options);
+                    navigator.camera.getPicture(function(result) {
+                        // Do any magic you need
+                        q.resolve(result);
+                    }, function(err) {
+                        q.reject(err);
+                    }, options);
                 }
                 catch(err) {
-                  q.reject("Fatal error: navigator.camera.getPicture()");                                 
+                    console.log('CameraService: erreur générale');
+                    q.reject("Fatal error: navigator.camera.getPicture()");                                 
                 }
+
                 
                 return q.promise;
+                
             }
         }
     }

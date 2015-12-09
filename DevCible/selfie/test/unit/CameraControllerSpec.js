@@ -12,12 +12,10 @@ describe('Unit: CameraController', function() {
         });
     }));
     
+    
     it('should be able to take a picture', function() {
         scope.CamCtrl.takePicture();
-        scope.$digest();  
-        
         console.log(scope.CamCtrl.imageURI);
-        
         expect(scope.CamCtrl.imageURI).toBeDefined();
     });    
 });

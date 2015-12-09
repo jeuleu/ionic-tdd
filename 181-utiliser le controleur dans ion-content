@@ -1,9 +1,0 @@
-- utiliser le controller
-
-      <ion-content ng-controller="CameraController as CamCtrl">
-      
-          <p ng-show="CamCtrl.imageURI === undefined">Rien à voir...</p>
-          <img ng-show="CamCtrl.imageURI !== undefined" ng-src="{{CamCtrl.imageURI}}">
-          <ion-button class="button button-calm" ng-click="CamCtrl.takePicture()">Mon selfie</ion-button>
-          
-      </ion-content>
